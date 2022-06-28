@@ -9,7 +9,7 @@ export class TimeZoneComponent implements OnInit {
   timezones: string[] = [
     'Europe/Paris',
     'America/New_York',
-    'Europe/Amsterdam',
+    'America/Los_Angeles',
   ];
 
   constructor() {}
@@ -18,11 +18,12 @@ export class TimeZoneComponent implements OnInit {
 
   }
 
-  setTime(timezone: string){
-    const date= new Date().toLocaleString('fr-FR', { timeZone: timezone });
+  setTime(timezone: string):string {
+    const date:string= new Date().toLocaleString('fr-FR', { timeZone: timezone });
+    setInterval(()=> {this.setTime(timezone)},1000);
     return date;
   }
-  }
+}
 
 
 
